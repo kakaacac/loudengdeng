@@ -1,0 +1,1 @@
+[17-Nov-2015 04:47:43 UTC] PHP Fatal error:  Trait 'Illuminate\Foundation\Auth\ThrottlesLogins' not found in /home/kakaacac/testing/app/Http/Controllers/Auth/AuthController.php on line 24
