@@ -12,7 +12,7 @@ class Registrar implements RegistrarContract {
 	 * @param  array  $data
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	protected function validator(array $data)
+	public function validator(array $data)
     {
         return Validator::make($data, [
             'username' => 'required|min:2|max:255|unique:users',
