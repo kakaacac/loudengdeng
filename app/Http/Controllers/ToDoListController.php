@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class ToDoListController extends Controller
 {
@@ -16,7 +19,18 @@ class ToDoListController extends Controller
      */
     public function index()
     {
-        //
+        $username = Auth::user()->username;
+		Schema::create($username, function (Blueprint $table){
+            $table->increments('id');
+            $table->string('taskname')->unique();
+            $table->string('description');
+            $table->date('deadline');
+			$table->boolean('important');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+		
+		return redirect('home');
     }
 
     /**
