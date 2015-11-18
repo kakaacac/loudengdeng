@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -20,8 +21,14 @@ class AuthController extends Controller {
 
 	use AuthenticatesAndRegistersUsers;
 	
-	protected $redirectTo = 'auth/handle-registration';
-	protected $loginPath = '/fail';
+	protected $redirectPath = 'auth/handle-registration';
+	protected $loginPath = 'fail';
+
+//To validate username instead of email
+	protected $username = 'username';
+
+//Set redirect path after logout
+	protected $redirectAfterLogout = 'auth/login';
 
 	/**
 	 * Create a new authentication controller instance.
@@ -37,6 +44,43 @@ class AuthController extends Controller {
 
 		//$this->middleware('guest', ['except' => 'getLogout']);
 	}
+
+public function postLogin(Request $request)
+	{
+		$this->validate($request, [
+			$this->loginUsername() => 'required', 'password' => 'required',
+		]);
+
+		$credentials = $this->getCredentials($request);
+
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect('home');
+		}
+
+		return redirect($this->loginPath())
+					->withInput($request->only($this->loginUsername(), 'remember'))
+					->withErrors([
+						$this->loginUsername() => $this->getFailedLoginMessage(),
+					]);
+	}
+
+public function loginUsername()
+    {
+        return property_exists($this, 'username') ? $this->username : 'email';
+    }
+
+protected function getCredentials(Request $request)
+    {
+        return $request->only($this->loginUsername(), 'password');
+    }
+
+public function getLogout()
+    {
+        $this->auth->logout();
+
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
 
 }
 
