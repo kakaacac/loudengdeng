@@ -30,7 +30,7 @@ class ToDoListController extends Controller
             $table->timestamps();
         });
 		
-		return redirect('home');
+		return redirect('profile');
     }
 
     /**

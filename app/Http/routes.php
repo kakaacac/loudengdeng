@@ -11,7 +11,13 @@
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+Route::get('home', function () {
+    return view('home');
+});
+Route::get('gomoku', function () {
+    return view('gomoku');
 });
 
 //Route::get('home', 'HomeController@index');
@@ -26,7 +32,7 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/handle-registration','ToDoListController@index');
 
-Route::get('home', function () {
+Route::get('profile', function () {
     return view('auth/logout');
 });
 Route::get('fail', function () {
