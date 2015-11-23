@@ -55,7 +55,7 @@ public function postLogin(Request $request)
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
-			return redirect('home');
+			return redirect()->action('ToDoListController@show',[$this->loginUsername()]);
 		}
 
 		return redirect($this->loginPath())

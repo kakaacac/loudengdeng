@@ -15,7 +15,7 @@
 
 
 </div>
-@endsection
+
 <div>
 @if($errors->has())
    @foreach ($errors->all() as $error)
@@ -23,3 +23,9 @@
   @endforeach
 @endif
 </div>
+<br>
+<hr>
+<div>
+Not have your account yet? Please <a href="/auth/register">register</a>
+</div>
+@endsection

@@ -1,6 +1,6 @@
 @extends('base')
 @section('title')
-<title>Login</title>
+<title>Register</title>
 @endsection
 @section('content')
 <div id="register">

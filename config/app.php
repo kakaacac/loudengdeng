@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Asia/Shanghai',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -145,7 +145,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
-'Illuminate\Html\HtmlServiceProvider',
+		'Collective\Html\HtmlServiceProvider',
 
 	],
 
@@ -195,8 +195,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
-'Form'      => 'Illuminate\Html\FormFacade',
-'Html'      => 'Illuminate\Html\HtmlFacade',
+		'Form'      => 'Collective\Html\FormFacade',
+		'Html'      => 'Collective\Html\HtmlFacade',
 
 	],
 

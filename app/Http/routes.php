@@ -20,6 +20,7 @@ Route::get('gomoku', function () {
     return view('gomoku');
 });
 
+
 //Route::get('home', 'HomeController@index');
 
 /*Route::controllers([
@@ -32,13 +33,14 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/handle-registration','ToDoListController@index');
 
-Route::get('profile', function () {
-    return view('auth/logout');
-});
+
 Route::get('fail', function () {
     return 'fail';
 });
 
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('profile', 'ToDoListController@show');
+Route::post('profile', 'ToDoListController@store');
 

@@ -6,7 +6,7 @@
 <meta name="description" content="A personal and experimental website built for our lovely and pretty Miss Lou Dengdeng.">
 <meta name="author" content="Jayden Chan">
 <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 @yield('style')
 </head>
 
@@ -15,9 +15,9 @@
 <h1>
 Lou Dengdeng's Blog
 </h1>
-<img src="images/sb.gif" alt="SB">
+<img src="/images/sb.gif" alt="SB">
 </div>
-<nav><a href="home" id="first">Home</a><a href="gomoku">Gomoku</a><a href="#">To Do List</a><a href="#">About</a></nav>
+<nav><a href="/home" id="first">Home</a><a href="/gomoku">Gomoku</a><a href="/auth/login">To Do List</a><a href="#">About</a></nav>
 @yield('content')
 </body>
 </html>
